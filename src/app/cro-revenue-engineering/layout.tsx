@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "CRO & Revenue Engineering, AI-Powered Conversion Optimization | Globify",
+  title: "CRO & Revenue Engineering, AI-Powered Conversion Optimization",
   description: "Globify's AI-powered CRO & Revenue Engineering: predictive personalization, A/B testing, funnel optimization, and AEO-driven discovery that increase conversions by 30–80%.",
-  alternates: { canonical: "https://globify.ae/cro-revenue-engineering", languages: {
-      'en-AE': 'https://globify.ae/cro-revenue-engineering',
-      'en-IN': 'https://globify.in/cro-revenue-engineering',
-      'x-default': 'https://globify.ae/cro-revenue-engineering'
-    } },
+  alternates: { canonical: "https://globify.ae/cro-revenue-engineering" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

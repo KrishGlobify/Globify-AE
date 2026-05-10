@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Shopware Development Agency | DACH E-Commerce | Globify",
+  title: "Shopware Development Agency | DACH E-Commerce",
   description: "Expert Shopware 6 development for Germany, Austria & Netherlands. API-first, headless-ready, B2B commerce. German-engineered e-commerce from €5,000.",
-  alternates: { canonical: "https://globify.ae/shopware-development", languages: {
-      'en-AE': 'https://globify.ae/shopware-development',
-      'en-IN': 'https://globify.in/shopware-development',
-      'x-default': 'https://globify.ae/shopware-development'
-    } },
+  alternates: { canonical: "https://globify.ae/shopware-development" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

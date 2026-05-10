@@ -1,18 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ImgHTMLAttributes } from "react";
 import Image from "next/image";
 
-interface LazyImageProps {
+interface LazyImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
-  className?: string;
   placeholderColor?: string;
-  width?: number;
-  height?: number;
 }
 
-const LazyImage = ({ src, alt, className, placeholderColor = "bg-muted", width = 800, height = 600 }: LazyImageProps) => {
+const LazyImage = ({ src, alt, className, placeholderColor = "bg-muted", ...props }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -36,14 +33,14 @@ const LazyImage = ({ src, alt, className, placeholderColor = "bg-muted", width =
     <div ref={imgRef} className={`relative overflow-hidden ${className || ""}`}>
       {!isLoaded && <div className={`absolute inset-0 ${placeholderColor} animate-pulse`} />}
       {isInView && (
-        <Image
-          src={src}
+        // @ts-ignore
+        <Image src={src}
           alt={alt}
-          width={width}
-          height={height}
           loading="lazy"
+          decoding="async"
           onLoad={() => setIsLoaded(true)}
           className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+          {...props}
         />
       )}
     </div>

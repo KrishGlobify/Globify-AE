@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "BigCommerce Development Agency | SaaS E-Commerce | Globify",
+  title: "BigCommerce Development Agency | SaaS E-Commerce",
   description: "Expert BigCommerce development with zero transaction fees. Multi-storefront, B2B edition, headless commerce. Enterprise SaaS e-commerce from AED 8,000.",
-  alternates: { canonical: "https://globify.ae/bigcommerce-development", languages: {
-      'en-AE': 'https://globify.ae/bigcommerce-development',
-      'en-IN': 'https://globify.in/bigcommerce-development',
-      'x-default': 'https://globify.ae/bigcommerce-development'
-    } },
+  alternates: { canonical: "https://globify.ae/bigcommerce-development" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

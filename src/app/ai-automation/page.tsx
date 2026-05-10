@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import AiAutomationClient from "./AiAutomationClient";
 
 export const metadata: Metadata = {
-  title: "AI & Intelligent Automation Services | Globify UAE",
+  title: "AI & Intelligent Automation Services",
   description: "Enterprise AI implementations. Automate workflows, deploy machine learning, and extract actionable insights. Drive 60% operational efficiency with our AI solutions.",
-  alternates: { canonical: "/ai-automation", languages: {
-      'en-AE': 'https://globify.ae/ai-automation',
-      'en-IN': 'https://globify.in/ai-automation',
-      'x-default': 'https://globify.ae/ai-automation'
-    } },
+  alternates: {
+    canonical: "/ai-automation",
+  },
 };
 
 export default function Page() {

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const SelectWithChevron = ({
   id,
@@ -39,6 +40,7 @@ const SelectWithChevron = ({
 );
 
 const AIAutoLeadCapture = () => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -51,9 +53,11 @@ const AIAutoLeadCapture = () => {
         body: formData,
       });
       if (!res.ok) throw new Error("Failed to submit");
+      typeof window !== "undefined" && (window as any).gtag && (window as any).gtag('event', 'generate_lead');
       toast.success("Audit Requested!", {
         description: "We'll get back to you within 24 hours.",
       });
+    router.push("/thank-you");
       (e.target as HTMLFormElement).reset();
     } catch (error) {
       toast.error("Something went wrong. Please try again later.");
@@ -129,14 +133,25 @@ const AIAutoLeadCapture = () => {
                     className="col-span-1 bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
                   />
                 </div>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  placeholder="Company Name"
-                  maxLength={100}
-                  className="w-full bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
-                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="Phone Number *"
+                    required
+                    maxLength={20}
+                    className="col-span-1 bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
+                  />
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    placeholder="Company Name"
+                    maxLength={100}
+                    className="col-span-1 bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
+                  />
+                </div>
                 <SelectWithChevron id="industry" name="industry" required>
                   <option value="">Industry *</option>
                   <option>E-Commerce & Retail</option>
@@ -163,15 +178,15 @@ const AIAutoLeadCapture = () => {
                   <option>Microsoft Power Platform</option>
                   <option>Other</option>
                 </SelectWithChevron>
-                <SelectWithChevron id="budget" name="budget">
-                  <option value="">Budget Range</option>
+                <SelectWithChevron id="budget" name="budget" required>
+                  <option value="">Budget Range *</option>
                   <option>$5K – $15K</option>
                   <option>$15K – $50K</option>
                   <option>$50K – $150K</option>
                   <option>$150K+</option>
                 </SelectWithChevron>
-                <SelectWithChevron id="timeline" name="timeline">
-                  <option value="">Timeline</option>
+                <SelectWithChevron id="timeline" name="timeline" required>
+                  <option value="">Timeline *</option>
                   <option>Immediate (1–2 weeks)</option>
                   <option>1–3 months</option>
                   <option>3–6 months</option>
@@ -180,7 +195,8 @@ const AIAutoLeadCapture = () => {
                 <textarea
                   id="challenges"
                   name="message"
-                  placeholder="Key challenges or goals..."
+                  required
+                  placeholder="Key challenges or goals... *"
                   rows={3}
                   maxLength={2000}
                   className="w-full bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40 resize-none"

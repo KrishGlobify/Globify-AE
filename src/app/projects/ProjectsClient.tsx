@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from 'next/link';
@@ -22,6 +21,7 @@ import portfolioEkasysRetail from "@/assets/portfolio-ekasys-retail.jpg";
 import portfolioEkasysRE from "@/assets/portfolio-ekasys-realestate.jpg";
 import portfolioMedoc from "@/assets/portfolio-medoc.jpeg";
 import portfolioSalomon from "@/assets/portfolio-salomon.jpg";
+import Image from "next/image";
 
 const categories = ["All", "E-Commerce", "Web App", "App Development", "Healthcare", "ERP"];
 
@@ -218,7 +218,7 @@ const ProjectsPage = () => {
                   className="group relative rounded-2xl overflow-hidden cursor-pointer border border-border hover:border-primary/20 transition-all duration-500 bg-card"
                 >
                   <div className="relative aspect-[3/2] md:aspect-auto md:h-[380px] bg-[#0a0a1a] overflow-hidden">
-                    <Image width={800} height={600} src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"  />
+                    <Image src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" draggable={false} />
                     <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a1a]/80 via-transparent to-[#0a0a1a]/90" />
                     <div className="absolute top-2 left-5 right-4 md:top-5 md:left-7 md:right-5 flex items-start justify-between gap-3">
                       <div>

@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Moher Case Study | Globify Portfolio",
   description: "Read the Moher case study to see how Globify delivered transformative digital solutions, custom development, and measurable ROI.",
-  alternates: { canonical: "/case-study/moher", languages: {
-      'en-AE': 'https://globify.ae/case-study/moher',
-      'en-IN': 'https://globify.in/case-study/moher',
-      'x-default': 'https://globify.ae/case-study/moher'
-    } },
+  alternates: { canonical: "/case-study/moher" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -22,9 +18,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             "headline": "Moher Digital Transformation Case Study",
             "description": "Read the Moher case study to see how Globify delivered transformative digital solutions and custom development.",
             "author": {
-              "@type": "Organization",
-              "name": "Globify",
-              "sameAs": ["https://www.linkedin.com/company/globify", "https://www.instagram.com/globify"],
+              "@type": "Person",
+              "name": "Sreekanth",
+              "jobTitle": "Lead Digital Architect",
+              "url": "https://globify.ae/about"
             },
             "publisher": {
               "@type": "Organization",

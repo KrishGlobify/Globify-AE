@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI-Powered Healthcare Solutions, Intelligent Clinical Platforms | Globify",
+  title: "AI-Powered Healthcare Solutions, Intelligent Clinical Platforms",
   description: "Globify builds AI-powered telemedicine, intelligent EHR/EMR, predictive diagnostics, and autonomous hospital operations. AEO-optimized for AI search visibility. 60% admin cost reduction.",
-  alternates: { canonical: "https://globify.ae/industries/healthcare", languages: {
-      'en-AE': 'https://globify.ae/industries/healthcare',
-      'en-IN': 'https://globify.in/industries/healthcare',
-      'x-default': 'https://globify.ae/industries/healthcare'
-    } },
+  alternates: { canonical: "https://globify.ae/industries/healthcare" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

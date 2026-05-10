@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Wix E-Commerce Development | Fast D2C Stores | Globify",
+  title: "Wix E-Commerce Development | Fast D2C Stores",
   description: "Launch your D2C store fast with Wix E-Commerce. Drag-and-drop builder, Wix Studio for agencies, built-in marketing. Professional Wix stores from AED 3,000.",
-  alternates: { canonical: "https://globify.ae/wix-ecommerce", languages: {
-      'en-AE': 'https://globify.ae/wix-ecommerce',
-      'en-IN': 'https://globify.in/wix-ecommerce',
-      'x-default': 'https://globify.ae/wix-ecommerce'
-    } },
+  alternates: { canonical: "https://globify.ae/wix-ecommerce" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from 'next/link';
-import Image from "next/image";
 
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -14,6 +13,7 @@ import portfolioErp from "@/assets/portfolio-erp.jpg";
 import portfolioJudith from "@/assets/portfolio-judith-leiber.jpeg";
 import portfolioInstaRunway from "@/assets/portfolio-instarunway.jpeg";
 import clientSalomon from "@/assets/portfolio-salomon.jpg";
+import Image from "next/image";
 
 const allCaseStudies = [
   { slug: "wilson", title: "Wilson", category: "E-Commerce", image: portfolioWilson.src, stat: "500K+ Users" },
@@ -50,7 +50,7 @@ const RelatedCaseStudies = ({ current }: RelatedCaseStudiesProps) => {
                   className="rounded-2xl overflow-hidden border border-white/10 hover:border-primary/30 transition-all duration-300 bg-white/[0.03]"
                 >
                   <div className="aspect-[16/10] overflow-hidden">
-                    <Image width={800} height={600} src={study.image} alt={study.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={study.image} alt={study.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-5">
                     <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary/70 mb-1">{study.category}</p>

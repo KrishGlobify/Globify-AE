@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Hire Dedicated Developers from India | Globify",
+  title: "Hire Dedicated Developers from India",
   description: "Hire skilled remote developers from India at 60-70% lower cost. React, Node.js, Python, Shopify, Mobile, DevOps and more. Start in 48 hours with pre-vetted offshore development teams.",
-  alternates: { canonical: "https://globify.ae/hire-developers", languages: {
-      'en-AE': 'https://globify.ae/hire-developers',
-      'en-IN': 'https://globify.in/hire-developers',
-      'x-default': 'https://globify.ae/hire-developers'
-    } },
+  alternates: { canonical: "https://globify.ae/hire-developers" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

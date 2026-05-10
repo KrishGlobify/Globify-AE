@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Shopify Development Agency in France | E-Commerce Experts",
   description: "Top-rated Shopify development and e-commerce design services in France. We build high-converting, scalable Shopify and Shopify Plus stores.",
-  alternates: { canonical: "https://globify.ae/shopify-france", languages: {
-      'en-AE': 'https://globify.ae/shopify-france',
-      'en-IN': 'https://globify.in/shopify-france',
-      'x-default': 'https://globify.ae/shopify-france'
-    } },
+  alternates: { canonical: "https://globify.ae/shopify-france" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

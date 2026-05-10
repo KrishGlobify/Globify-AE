@@ -7,10 +7,17 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+// ✅ FIX 1: params is Promise
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const post = blogPosts.find((p) => p.slug === slug);
   if (!post) {
-    return { title: 'Post Not Found | Globify' };
+    return { title: "Post Not Found" };
   }
 
   return {
@@ -26,12 +33,21 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       url: `https://globify.ae/blog/${post.slug}`,
       publishedTime: post.date,
       authors: [post.author],
-    }
+    },
   };
 }
 
-export default function Layout({ children, params }: { children: React.ReactNode, params: { slug: string } }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+// ✅ FIX 2: async layout + await params
+export default async function Layout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const post = blogPosts.find((p) => p.slug === slug);
 
   return (
     <>
@@ -42,38 +58,60 @@ export default function Layout({ children, params }: { children: React.ReactNode
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Article",
-              "headline": post.title,
-              "description": post.excerpt,
-              "author": {
+              headline: post.title,
+              description: post.excerpt,
+              author: {
                 "@type": "Organization",
-                "name": post.author,
+                name: post.author,
               },
-              "publisher": {
+              publisher: {
                 "@type": "Organization",
-                "name": "Globify",
-              "sameAs": ["https://www.linkedin.com/company/globify", "https://www.instagram.com/globify"],
-                "logo": {
+                name: "Globify",
+                sameAs: [
+                  "https://www.linkedin.com/company/globify",
+                  "https://www.instagram.com/globify",
+                ],
+                logo: {
                   "@type": "ImageObject",
-                  "url": "https://globify.ae/logo.png"
-                }
+                  url: "https://globify.ae/logo.png",
+                },
               },
-              "mainEntityOfPage": `https://globify.ae/blog/${post.slug}`,
-              "datePublished": post.date,
-            })
+              mainEntityOfPage: `https://globify.ae/blog/${post.slug}`,
+              datePublished: post.date,
+            }),
           }}
         />
       )}
-      
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://globify.ae"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://globify.ae/blog"},{"@type":"ListItem","position":3,"name":"Current Article"}]
-          })
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://globify.ae",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: "https://globify.ae/blog",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Current Article",
+              },
+            ],
+          }),
         }}
       />
+
       {children}
     </>
   );

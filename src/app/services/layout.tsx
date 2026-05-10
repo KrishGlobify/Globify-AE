@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Our Services — Web, App, E-Commerce, AI & Marketing",
   description: "Explore Globify's full-stack digital services: web development, mobile apps, e-commerce, digital marketing, AI automation, and ERP solutions for UAE & India.",
-  alternates: { canonical: "https://globify.ae/services", languages: {
-      'en-AE': 'https://globify.ae/services',
-      'en-IN': 'https://globify.in/services',
-      'x-default': 'https://globify.ae/services'
-    } },
+  alternates: { canonical: "https://globify.ae/services" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

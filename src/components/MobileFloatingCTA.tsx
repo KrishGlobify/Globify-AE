@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone } from "lucide-react";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
+import Image from "next/image";
 
 const MobileFloatingCTA = () => {
   const [visible, setVisible] = useState(false);
@@ -31,13 +31,13 @@ const MobileFloatingCTA = () => {
             >
               <div className="flex items-center gap-2 w-full">
                 <a
-                  href="https://wa.me/919544086877?text=Hi%20Globify%2C%20I%27m%20interested%20in%20your%20services."
+                  href="https://wa.me/971547308673?text=Hi%20Globify%2C%20I%27m%20interested%20in%20your%20services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border-2 border-hero-foreground/30 flex items-center justify-center active:bg-hero-foreground/10 transition-colors flex-shrink-0 overflow-hidden"
                   aria-label="Chat on WhatsApp"
-                >
-                  <Image width={800} height={600} src={whatsappIcon.src} alt="WhatsApp" className="w-full h-full object-cover" />
+                 onClick={() => typeof window !== "undefined" && (window as any).gtag && (window as any).gtag('event', 'contact_whatsapp')}>
+                  <Image src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-cover" />
                 </a>
                 <button
                   onClick={() => setContactOpen(true)}
@@ -46,10 +46,19 @@ const MobileFloatingCTA = () => {
                   Get Free Consultation
                 </button>
                 <a
-                  href="tel:+919544086877"
+                  href="tel:+971547308673"
                   className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-foreground border-2 border-hero-foreground/30 flex items-center justify-center active:opacity-80 transition-opacity flex-shrink-0"
                   aria-label="Call us"
-                >
+                 onClick={() => {
+                   if (typeof window !== "undefined" && (window as any).gtag) {
+                     (window as any).gtag('event', 'contact_call');
+                     (window as any).gtag('event', 'conversion', {
+                       send_to: 'AW-17163382693/470NCM_1kqEcEKXfkfg_',
+                       value: 1.0,
+                       currency: 'AED'
+                     });
+                   }
+                 }}>
                   <Phone className="w-5 h-5 text-background" />
                 </a>
               </div>

@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Shopify Development Agency in India | E-Commerce Experts",
   description: "Top-rated Shopify development and e-commerce design services in India. We build high-converting, scalable Shopify and Shopify Plus stores.",
-  alternates: { canonical: "https://globify.ae/shopify-india", languages: {
-      'en-AE': 'https://globify.ae/shopify-india',
-      'en-IN': 'https://globify.in/shopify-india',
-      'x-default': 'https://globify.ae/shopify-india'
-    } },
+  alternates: { canonical: "https://globify.ae/shopify-india" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

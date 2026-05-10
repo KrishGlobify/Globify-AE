@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Kat Maconie Case Study | Globify Portfolio",
   description: "Read the Kat Maconie case study to see how Globify delivered transformative digital solutions, custom development, and measurable ROI.",
-  alternates: { canonical: "/case-study/kat-maconie", languages: {
-      'en-AE': 'https://globify.ae/case-study/kat-maconie',
-      'en-IN': 'https://globify.in/case-study/kat-maconie',
-      'x-default': 'https://globify.ae/case-study/kat-maconie'
-    } },
+  alternates: { canonical: "/case-study/kat-maconie" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -22,9 +18,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             "headline": "Kat Maconie Digital Transformation Case Study",
             "description": "Read the Kat Maconie case study to see how Globify delivered transformative digital solutions and custom development.",
             "author": {
-              "@type": "Organization",
-              "name": "Globify",
-              "sameAs": ["https://www.linkedin.com/company/globify", "https://www.instagram.com/globify"],
+              "@type": "Person",
+              "name": "Sreekanth",
+              "jobTitle": "Lead Digital Architect",
+              "url": "https://globify.ae/about"
             },
             "publisher": {
               "@type": "Organization",

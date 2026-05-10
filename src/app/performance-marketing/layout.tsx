@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Performance Marketing, PPC, Google Ads & Paid Media",
   description: "Data-driven performance marketing: Google Ads, Meta Ads, LinkedIn, programmatic & retargeting. Maximize ROAS with AI-powered bid optimization.",
-  alternates: { canonical: "https://globify.ae/performance-marketing", languages: {
-      'en-AE': 'https://globify.ae/performance-marketing',
-      'en-IN': 'https://globify.in/performance-marketing',
-      'x-default': 'https://globify.ae/performance-marketing'
-    } },
+  alternates: { canonical: "https://globify.ae/performance-marketing" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

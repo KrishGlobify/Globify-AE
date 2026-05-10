@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Predictive Analytics & AI Insights, Data-Driven Growth | Globify",
+  title: "Predictive Analytics & AI Insights, Data-Driven Growth",
   description: "Leverage machine learning to forecast trends, optimize inventory, and make data-driven decisions that accelerate growth. Predictive analytics for UAE & India.",
-  alternates: { canonical: "https://globify.ae/predictive-analytics", languages: {
-      'en-AE': 'https://globify.ae/predictive-analytics',
-      'en-IN': 'https://globify.in/predictive-analytics',
-      'x-default': 'https://globify.ae/predictive-analytics'
-    } },
+  alternates: { canonical: "https://globify.ae/predictive-analytics" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

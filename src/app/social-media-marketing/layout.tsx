@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Social Media Management & Marketing, Strategy, Content & Growth",
   description: "Full-service social media management: content creation, community management, influencer marketing, and paid social campaigns for brands in UAE and India.",
-  alternates: { canonical: "https://globify.ae/social-media-marketing", languages: {
-      'en-AE': 'https://globify.ae/social-media-marketing',
-      'en-IN': 'https://globify.in/social-media-marketing',
-      'x-default': 'https://globify.ae/social-media-marketing'
-    } },
+  alternates: { canonical: "https://globify.ae/social-media-marketing" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

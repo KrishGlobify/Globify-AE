@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI-Powered Chatbots & Assistants, Conversational AI | Globify",
+  title: "AI-Powered Chatbots & Assistants, Conversational AI",
   description: "Intelligent conversational agents that handle customer support, qualify leads, and deliver personalized experiences 24/7. Custom AI chatbots for UAE & India.",
-  alternates: { canonical: "https://globify.ae/ai-chatbots", languages: {
-      'en-AE': 'https://globify.ae/ai-chatbots',
-      'en-IN': 'https://globify.in/ai-chatbots',
-      'x-default': 'https://globify.ae/ai-chatbots'
-    } },
+  alternates: { canonical: "https://globify.ae/ai-chatbots" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ArrowLeft, ArrowRight, CheckCircle2, Star } from "lucide-react";
 import Link from 'next/link';
 
@@ -12,6 +11,7 @@ import CaseStudyBreadcrumb from "@/components/CaseStudyBreadcrumb";
 import RelatedCaseStudies from "@/components/RelatedCaseStudies";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import clientSalomon from "@/assets/portfolio-salomon.jpg";
+import Image from "next/image";
 
 const techStack = ["Shopify", "Custom Liquid Theme", "Multi-Language (EN/AR)", "RTL Support", "GCC Localization", "Country Switcher", "JavaScript", "CDN Optimization", "Performance Optimization"];
 
@@ -47,7 +47,7 @@ const CaseStudySalomon = () => {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="rounded-2xl overflow-hidden">
-              <Image width={800} height={600} src={clientSalomon.src} alt="Salomon brand" className="w-full h-[350px] object-cover rounded-2xl" />
+              <Image src={clientSalomon} alt="Salomon brand" className="w-full h-[350px] object-cover rounded-2xl" />
             </motion.div>
           </div>
         </div>

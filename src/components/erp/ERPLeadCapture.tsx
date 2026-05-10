@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const SelectWithChevron = ({
   id,
@@ -39,6 +40,7 @@ const SelectWithChevron = ({
 );
 
 const ERPLeadCapture = () => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -51,9 +53,11 @@ const ERPLeadCapture = () => {
         body: formData,
       });
       if (!res.ok) throw new Error("Failed to submit");
+      typeof window !== "undefined" && (window as any).gtag && (window as any).gtag('event', 'generate_lead');
       toast.success("Assessment Requested!", {
         description: "We'll be in touch within 24 hours.",
       });
+    router.push("/thank-you");
       (e.target as HTMLFormElement).reset();
     } catch (error) {
       toast.error("Something went wrong. Please try again later.");
@@ -107,9 +111,9 @@ const ERPLeadCapture = () => {
             >
               <form
                 onSubmit={handleSubmit}
-                className="bg-hero-foreground/[0.03] border border-hero-foreground/[0.06] rounded-2xl p-6 sm:p-8 space-y-5"
+                className="bg-hero-foreground/[0.03] border border-hero-foreground/[0.06] rounded-2xl p-6 sm:p-8 space-y-4"
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <input
                     id="fullName"
                     name="name"
@@ -117,17 +121,27 @@ const ERPLeadCapture = () => {
                     placeholder="Full Name *"
                     required
                     maxLength={100}
-                    className="col-span-1 bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
+                    className="w-full bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
                   />
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Work Email *"
-                    required
-                    maxLength={255}
-                    className="col-span-1 bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
-                  />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Work Email *"
+                      required
+                      maxLength={255}
+                      className="bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
+                    />
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="Phone Number *"
+                      required
+                      className="bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40"
+                    />
+                  </div>
                 </div>
                 <input
                   id="company"
@@ -157,24 +171,27 @@ const ERPLeadCapture = () => {
                   <option>ERP audit & optimization</option>
                   <option>Other</option>
                 </SelectWithChevron>
-                <SelectWithChevron id="companySize" name="companySize">
-                  <option value="">Company Size</option>
-                  <option>1–50 employees</option>
-                  <option>50–200 employees</option>
-                  <option>200–1000 employees</option>
-                  <option>1000+ employees</option>
-                </SelectWithChevron>
-                <SelectWithChevron id="timeline" name="timeline">
-                  <option value="">Timeline</option>
-                  <option>Immediate</option>
-                  <option>1–3 months</option>
-                  <option>3–6 months</option>
-                  <option>6+ months</option>
-                </SelectWithChevron>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <SelectWithChevron id="companySize" name="companySize" required>
+                    <option value="">Company Size *</option>
+                    <option>1–50 employees</option>
+                    <option>50–200 employees</option>
+                    <option>200–1000 employees</option>
+                    <option>1000+ employees</option>
+                  </SelectWithChevron>
+                  <SelectWithChevron id="timeline" name="timeline" required>
+                    <option value="">Timeline *</option>
+                    <option>Immediate</option>
+                    <option>1–3 months</option>
+                    <option>3–6 months</option>
+                    <option>6+ months</option>
+                  </SelectWithChevron>
+                </div>
                 <textarea
                   id="challenges"
                   name="message"
-                  placeholder="Key challenges or requirements..."
+                  required
+                  placeholder="Key challenges or requirements... *"
                   rows={3}
                   maxLength={2000}
                   className="w-full bg-hero-foreground/[0.04] border border-hero-foreground/[0.08] rounded-xl px-4 py-3 text-sm text-hero-foreground placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary/40 resize-none"

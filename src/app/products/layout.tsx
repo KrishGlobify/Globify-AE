@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Products — MEDOC & EKASYS Enterprise Software",
   description: "Discover Globify's enterprise products: MEDOC Hospital Management System and EKASYS ERP for scalable business operations in healthcare and manufacturing.",
-  alternates: { canonical: "https://globify.ae/products", languages: {
-      'en-AE': 'https://globify.ae/products',
-      'en-IN': 'https://globify.in/products',
-      'x-default': 'https://globify.ae/products'
-    } },
+  alternates: { canonical: "https://globify.ae/products" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

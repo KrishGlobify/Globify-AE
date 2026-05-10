@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ArrowLeft, ArrowRight, CheckCircle2, Star, Activity, Calendar, FileText, CreditCard, FlaskConical, Pill, BarChart3, MessageSquare } from "lucide-react";
 import Link from 'next/link';
 
@@ -12,6 +11,7 @@ import CaseStudyBreadcrumb from "@/components/CaseStudyBreadcrumb";
 import RelatedCaseStudies from "@/components/RelatedCaseStudies";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import portfolioMedoc from "@/assets/portfolio-medoc.jpeg";
+import Image from "next/image";
 
 const modules = [
   { icon: FileText, title: "EMR", desc: "Complete digital patient records — history, prescriptions, lab results, and treatment plans accessible instantly during consultations." },
@@ -61,7 +61,7 @@ const CaseStudyMedoc = () => {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="rounded-2xl overflow-hidden">
-              <Image width={800} height={600} src={portfolioMedoc.src} alt="MEDOC HMS clinic management dashboard" className="w-full h-[350px] object-cover rounded-2xl" />
+              <Image src={portfolioMedoc} alt="MEDOC HMS clinic management dashboard" className="w-full h-[350px] object-cover rounded-2xl" />
             </motion.div>
           </div>
         </div>

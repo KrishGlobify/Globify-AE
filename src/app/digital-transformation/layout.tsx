@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Digital Transformation Services, Strategy, Automation & Growth",
   description: "Enterprise digital transformation services for UAE and India. Strategy consulting, ERP automation, AI integration, cloud migration. ROI-focused solutions for CEOs, CTOs & IT leaders.",
-  alternates: { canonical: "https://globify.ae/digital-transformation", languages: {
-      'en-AE': 'https://globify.ae/digital-transformation',
-      'en-IN': 'https://globify.in/digital-transformation',
-      'x-default': 'https://globify.ae/digital-transformation'
-    } },
+  alternates: { canonical: "https://globify.ae/digital-transformation" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

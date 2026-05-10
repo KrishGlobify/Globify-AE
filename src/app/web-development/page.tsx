@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import WebDevelopmentClient from "./WebDevelopmentClient";
 
 export const metadata: Metadata = {
-  title: "Enterprise Web Development & Web Apps | Globify UAE",
+  title: "Enterprise Web Development & Web Apps",
   description: "Custom web development services, highly scalable React web apps, and enterprise CMS solutions. We build fast, secure digital platforms.",
-  alternates: { canonical: "/web-development", languages: {
-      'en-AE': 'https://globify.ae/web-development',
-      'en-IN': 'https://globify.in/web-development',
-      'x-default': 'https://globify.ae/web-development'
-    } },
+  alternates: {
+    canonical: "/web-development",
+  },
 };
 
 export default function Page() {

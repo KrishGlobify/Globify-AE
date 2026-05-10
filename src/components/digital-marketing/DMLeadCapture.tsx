@@ -4,8 +4,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const DMLeadCapture = () => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,9 +20,11 @@ const DMLeadCapture = () => {
         body: formData,
       });
       if (!res.ok) throw new Error("Failed to submit");
+      typeof window !== "undefined" && (window as any).gtag && (window as any).gtag('event', 'generate_lead');
       toast.success("Audit Requested!", {
         description: "We'll get back to you within 24 hours.",
       });
+    router.push("/thank-you");
       (e.target as HTMLFormElement).reset();
     } catch (error) {
       toast.error("Something went wrong. Please try again later.");
@@ -129,18 +133,33 @@ const DMLeadCapture = () => {
                 </div>
               </div>
 
-              <div>
-                <label className="text-sm font-semibold text-hero-foreground/60 mb-1.5 block">
-                  Email Address *
-                </label>
-                <input
-                  required
-                  type="email"
-                  name="email"
-                  maxLength={255}
-                  placeholder="john@company.com"
-                  className="w-full px-4 py-3 rounded-xl bg-hero border border-hero-foreground/10 text-hero-foreground text-sm placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary transition-colors"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-sm font-semibold text-hero-foreground/60 mb-1.5 block">
+                    Email Address *
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    maxLength={255}
+                    placeholder="john@company.com"
+                    className="w-full px-4 py-3 rounded-xl bg-hero border border-hero-foreground/10 text-hero-foreground text-sm placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="text-sm font-semibold text-hero-foreground/60 mb-1.5 block">
+                    Phone Number *
+                  </label>
+                  <input
+                    required
+                    type="tel"
+                    name="phone"
+                    maxLength={20}
+                    placeholder="+971 50 000 0000"
+                    className="w-full px-4 py-3 rounded-xl bg-hero border border-hero-foreground/10 text-hero-foreground text-sm placeholder:text-hero-foreground/25 focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
               </div>
 
               <div>
@@ -166,9 +185,10 @@ const DMLeadCapture = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-semibold text-hero-foreground/60 mb-1.5 block">
-                    Monthly Budget
+                    Monthly Budget *
                   </label>
                   <select
+                    required
                     name="budget"
                     className="w-full px-4 py-3 rounded-xl bg-hero border border-hero-foreground/10 text-hero-foreground text-sm focus:outline-none focus:border-primary transition-colors appearance-none"
                   >
@@ -182,9 +202,10 @@ const DMLeadCapture = () => {
                 </div>
                 <div>
                   <label className="text-sm font-semibold text-hero-foreground/60 mb-1.5 block">
-                    Timeline
+                    Timeline *
                   </label>
                   <select
+                    required
                     name="timeline"
                     className="w-full px-4 py-3 rounded-xl bg-hero border border-hero-foreground/10 text-hero-foreground text-sm focus:outline-none focus:border-primary transition-colors appearance-none"
                   >
@@ -199,9 +220,10 @@ const DMLeadCapture = () => {
 
               <div>
                 <label className="text-sm font-semibold text-hero-foreground/60 mb-1.5 block">
-                  Primary Goals
+                  Primary Goals *
                 </label>
                 <textarea
+                  required
                   rows={3}
                   name="message"
                   maxLength={1000}

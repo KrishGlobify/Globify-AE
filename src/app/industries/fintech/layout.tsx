@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI-Powered Fintech Solutions, Intelligent Financial Platforms | Globify",
+  title: "AI-Powered Fintech Solutions, Intelligent Financial Platforms",
   description: "Globify builds AI-powered payment intelligence, automated compliance, ML fraud detection, and algorithmic trading platforms. AEO-optimized. 70% compliance cost reduction.",
-  alternates: { canonical: "https://globify.ae/industries/fintech", languages: {
-      'en-AE': 'https://globify.ae/industries/fintech',
-      'en-IN': 'https://globify.in/industries/fintech',
-      'x-default': 'https://globify.ae/industries/fintech'
-    } },
+  alternates: { canonical: "https://globify.ae/industries/fintech" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

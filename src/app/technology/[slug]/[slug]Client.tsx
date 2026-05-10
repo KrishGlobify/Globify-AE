@@ -68,9 +68,9 @@ const TechnologyPage = () => {
       <section className="py-12 sm:py-20 bg-background">
         <div className="container mx-auto px-5 sm:px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
-            <p className="text-xs font-bold tracking-[0.3em] uppercase text-primary mb-3">Overview</p>
+            <p className="text-xs font-bold tracking-[0.3em] uppercase text-primary mb-3">Our Expertise</p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 leading-[1.1]">
-              What is {tech.name}?
+              Enterprise {tech.name} Services
             </h2>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">{tech.description}</p>
           </motion.div>
@@ -100,6 +100,52 @@ const TechnologyPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Pricing / Engagement Models */}
+      {tech.pricing && (
+        <section className="py-12 sm:py-20 bg-background border-t border-border">
+          <div className="container mx-auto px-5 sm:px-6">
+            <div className="max-w-4xl mx-auto text-center mb-10">
+              <p className="text-xs font-bold tracking-[0.3em] uppercase text-primary mb-3">Investment</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-[1.1]">
+                Transparent Pricing for {tech.name} Projects
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="p-8 rounded-2xl bg-card border border-border">
+                <h3 className="font-bold text-xl mb-2">Project-Based</h3>
+                <p className="text-3xl font-extrabold text-primary mb-4">{tech.pricing.startingAt}</p>
+                <p className="text-muted-foreground text-sm mb-6">End-to-end delivery with a fixed scope and timeline.</p>
+                <ul className="space-y-3 mb-8">
+                  {["Dedicated Project Manager", "UI/UX Design", "Development & Testing", "Deployment & Handover"].map((f, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-primary" /> {f}
+                    </li>
+                  ))}
+                </ul>
+                <button onClick={openContactDialog} className="w-full py-3 rounded-lg bg-primary/10 text-primary font-semibold hover:bg-primary hover:text-white transition-colors">
+                  Get a Quote
+                </button>
+              </div>
+              <div className="p-8 rounded-2xl bg-card border border-border">
+                <h3 className="font-bold text-xl mb-2">Dedicated Team</h3>
+                <p className="text-3xl font-extrabold text-primary mb-4">{tech.pricing.hourlyRate}</p>
+                <p className="text-muted-foreground text-sm mb-6">Flexible team augmentation for ongoing {tech.name} development.</p>
+                <ul className="space-y-3 mb-8">
+                  {["Certified Developers", "Direct Communication", "Agile Methodology", "Scale Up/Down on Demand"].map((f, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-primary" /> {f}
+                    </li>
+                  ))}
+                </ul>
+                <button onClick={openContactDialog} className="w-full py-3 rounded-lg border border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-colors">
+                  Hire Developers
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Applications */}
       <section className="py-12 sm:py-20 bg-background">

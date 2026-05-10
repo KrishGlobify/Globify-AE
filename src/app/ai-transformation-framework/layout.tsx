@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI-Driven Business Transformation Framework | Globify",
+  title: "AI-Driven Business Transformation Framework",
   description: "Globify's 5-phase AI transformation framework: Audit → Strategy → Implementation → Optimization → Innovation. AEO-optimized. Reduce costs by 60% and engineer revenue growth.",
-  alternates: { canonical: "https://globify.ae/ai-transformation-framework", languages: {
-      'en-AE': 'https://globify.ae/ai-transformation-framework',
-      'en-IN': 'https://globify.in/ai-transformation-framework',
-      'x-default': 'https://globify.ae/ai-transformation-framework'
-    } },
+  alternates: { canonical: "https://globify.ae/ai-transformation-framework" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

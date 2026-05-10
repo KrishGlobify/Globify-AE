@@ -12,17 +12,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const techs = getAllTechnologies();
   const tech = techs.find((t) => t.slug === params.slug);
   if (!tech) {
-    return { title: 'Technology Not Found | Globify' };
+    return { title: "Technology Not Found" };
   }
 
   return {
-    title: `${tech.name} Development Services | Globify UAE`,
+    title: "${tech.name} Development Services",
     description: tech.heroDescription || tech.description,
     alternates: {
       canonical: `/technology/${tech.slug}`,
     },
     openGraph: {
-      title: `${tech.name} Development Services | Globify UAE`,
+      title: "${tech.name} Development Services",
       description: tech.heroDescription || tech.description,
       type: "website",
       url: `https://globify.ae/technology/${tech.slug}`,

@@ -4,11 +4,9 @@ import ServicesClient from "./ServicesClient";
 export const metadata: Metadata = {
   title: "Full-Service Digital Agency UAE | AI & Tech Solutions",
   description: "Enterprise digital transformation, web apps, headless e-commerce, and high-performance marketing in Dubai & India. Explore Globify's core services.",
-  alternates: { canonical: "/services", languages: {
-      'en-AE': 'https://globify.ae/services',
-      'en-IN': 'https://globify.in/services',
-      'x-default': 'https://globify.ae/services'
-    } },
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function Page() {

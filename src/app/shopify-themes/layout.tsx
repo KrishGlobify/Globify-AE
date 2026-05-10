@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Custom Shopify Theme Design | Globify UAE",
+  title: "Custom Shopify Theme Design",
   description: "Pixel-perfect, high-converting custom Shopify themes built from scratch with Next.js or Liquid.",
-  alternates: { canonical: "https://globify.ae/shopify-themes", languages: {
-      'en-AE': 'https://globify.ae/shopify-themes',
-      'en-IN': 'https://globify.in/shopify-themes',
-      'x-default': 'https://globify.ae/shopify-themes'
-    } },
+  alternates: { canonical: "https://globify.ae/shopify-themes" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

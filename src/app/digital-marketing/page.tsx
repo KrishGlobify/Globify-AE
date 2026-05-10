@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import DigitalMarketingClient from "./DigitalMarketingClient";
 
 export const metadata: Metadata = {
-  title: "Performance Marketing & Digital Strategy | Globify UAE",
+  title: "Performance Marketing & Digital Strategy",
   description: "Data-driven performance marketing, SEO strategy, paid advertising, and CRO. Scale your online revenue aggressively with Globify.",
-  alternates: { canonical: "/digital-marketing", languages: {
-      'en-AE': 'https://globify.ae/digital-marketing',
-      'en-IN': 'https://globify.in/digital-marketing',
-      'x-default': 'https://globify.ae/digital-marketing'
-    } },
+  alternates: {
+    canonical: "/digital-marketing",
+  },
 };
 
 export default function Page() {

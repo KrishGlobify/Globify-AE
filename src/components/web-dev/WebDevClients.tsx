@@ -1,7 +1,6 @@
 "use client";
 
 import wilsonLogo from "@/assets/clients/wilson.png";
-import Image from "next/image";
 import instarunwayLogo from "@/assets/clients/instarunway.png";
 import salomonLogo from "@/assets/clients/salomon.png";
 import isroLogo from "@/assets/clients/isro.png";
@@ -11,28 +10,22 @@ import mrStartLogo from "@/assets/clients/mr-start.png";
 import telnysLogo from "@/assets/clients/telnys.png";
 import riadLogo from "@/assets/clients/riad.png";
 import judithLeiberLogo from "@/assets/clients/judith-leiber.png";
+import Image from "next/image";
 
 const clients = [
-  { name: "Salomon", alt: "Salomon Sports E-Commerce Platform built by Globify", logo: salomonLogo.src },
-  { name: "Wilson", alt: "Wilson Sporting Goods Digital Store developed by Globify", logo: wilsonLogo.src },
-  { name: "InstaRunway", alt: "InstaRunway Luxury Fashion E-Commerce by Globify", logo: instarunwayLogo.src },
-  { name: "ISRO", alt: "ISRO Space Research Custom Web Platform by Globify", logo: isroLogo.src },
-  { name: "Moher", alt: "Moher Premium Skincare E-Commerce by Globify", logo: moherLogo.src },
-  { name: "Moto Avenue", alt: "Moto Avenue Automotive E-Commerce developed by Globify", logo: motoavenueLogo.src },
-  { name: "MR START", alt: "MR START Men's Tailoring E-Commerce by Globify", logo: mrStartLogo.src },
-  { name: "Telnys", alt: "Telnys Technology Solutions Platform by Globify", logo: telnysLogo.src },
-  { name: "Ri-Ad", alt: "Ri-Ad Corporate Branding Website by Globify", logo: riadLogo.src },
-  { name: "Judith Leiber", alt: "Judith Leiber Luxury Accessories E-Commerce by Globify", logo: judithLeiberLogo.src },
+  { name: "Salomon", logo: salomonLogo.src },
+  { name: "Wilson", logo: wilsonLogo.src },
+  { name: "InstaRunway", logo: instarunwayLogo.src },
+  { name: "ISRO", logo: isroLogo.src },
+  { name: "Moher", logo: moherLogo.src },
+  { name: "Moto Avenue", logo: motoavenueLogo.src },
+  { name: "MR START", logo: mrStartLogo.src },
+  { name: "Telnys", logo: telnysLogo.src },
+  { name: "Ri-Ad", logo: riadLogo.src },
+  { name: "Judith Leiber", logo: judithLeiberLogo.src },
 ];
 
-import { useState, useEffect } from "react";
-
 const WebDevClients = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section className="py-14 bg-white overflow-hidden">
       <div className="container mx-auto px-6 mb-8">
@@ -46,28 +39,26 @@ const WebDevClients = () => {
         <div className="flex">
           <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
             {clients.map((client) => (
-              <Image width={800} height={600}                 key={client.name}
+              <Image key={client.name}
                 src={client.logo}
-                alt={client.alt}
+                alt={client.name}
                 loading="lazy"
                 decoding="async"
                 className="h-16 md:h-20 w-auto object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
               />
             ))}
           </div>
-          {mounted && (
-            <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
-              {clients.map((client) => (
-                <Image width={800} height={600}                   key={`${client.name}-dup`}
-                  src={client.logo}
-                  alt={client.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-16 md:h-20 w-auto object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                />
-              ))}
-            </div>
-          )}
+          <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
+            {clients.map((client) => (
+              <Image key={`${client.name}-dup`}
+                src={client.logo}
+                alt={client.name}
+                loading="lazy"
+                decoding="async"
+                className="h-16 md:h-20 w-auto object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

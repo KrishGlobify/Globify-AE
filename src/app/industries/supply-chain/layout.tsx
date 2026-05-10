@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI-Powered Supply Chain Solutions, Predictive Logistics & Autonomous Ops | Globify",
+  title: "AI-Powered Supply Chain Solutions, Predictive Logistics & Autonomous Ops",
   description: "Globify builds AI-powered supply chain platforms with predictive demand sensing, autonomous warehouse ops, and intelligent route optimization. AEO-optimized. 40% cost reduction.",
-  alternates: { canonical: "https://globify.ae/industries/supply-chain", languages: {
-      'en-AE': 'https://globify.ae/industries/supply-chain',
-      'en-IN': 'https://globify.in/industries/supply-chain',
-      'x-default': 'https://globify.ae/industries/supply-chain'
-    } },
+  alternates: { canonical: "https://globify.ae/industries/supply-chain" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

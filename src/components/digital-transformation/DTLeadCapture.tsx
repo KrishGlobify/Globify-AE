@@ -4,8 +4,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Clock, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const DTLeadCapture = () => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,9 +20,11 @@ const DTLeadCapture = () => {
         body: formData,
       });
       if (!res.ok) throw new Error("Failed to submit");
+      typeof window !== "undefined" && (window as any).gtag && (window as any).gtag('event', 'generate_lead');
       toast.success("Audit Requested!", {
         description: "We'll get back to you within 24 hours.",
       });
+    router.push("/thank-you");
       (e.target as HTMLFormElement).reset();
     } catch (error) {
       toast.error("Something went wrong. Please try again later.");
@@ -97,28 +101,39 @@ const DTLeadCapture = () => {
                 <input
                   id="company"
                   name="company"
-                  required
                   maxLength={100}
-                  placeholder="Company *"
+                  placeholder="Company"
                   className="w-full px-4 py-3 rounded-lg bg-hero-foreground/5 border border-hero-foreground/10 text-hero-foreground text-sm placeholder:text-hero-foreground/30 focus:outline-none focus:border-primary/40"
                 />
               </div>
-              <input
-                id="email"
-                name="email"
-                required
-                type="email"
-                maxLength={255}
-                placeholder="Work Email *"
-                className="w-full px-4 py-3 rounded-lg bg-hero-foreground/5 border border-hero-foreground/10 text-hero-foreground text-sm placeholder:text-hero-foreground/30 focus:outline-none focus:border-primary/40"
-              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  id="email"
+                  name="email"
+                  required
+                  type="email"
+                  maxLength={255}
+                  placeholder="Work Email *"
+                  className="w-full px-4 py-3 rounded-lg bg-hero-foreground/5 border border-hero-foreground/10 text-hero-foreground text-sm placeholder:text-hero-foreground/30 focus:outline-none focus:border-primary/40"
+                />
+                <input
+                  id="phone"
+                  name="phone"
+                  required
+                  type="tel"
+                  maxLength={20}
+                  placeholder="Phone Number *"
+                  className="w-full px-4 py-3 rounded-lg bg-hero-foreground/5 border border-hero-foreground/10 text-hero-foreground text-sm placeholder:text-hero-foreground/30 focus:outline-none focus:border-primary/40"
+                />
+              </div>
               <div className="relative">
                 <select
+                  required
                   id="role"
                   name="role"
                   className="w-full px-4 py-3 rounded-lg bg-hero-foreground/5 border border-hero-foreground/10 text-hero-foreground text-sm focus:outline-none focus:border-primary/40 appearance-none pr-10"
                 >
-                  <option value="">Select Your Role</option>
+                  <option value="">Select Your Role *</option>
                   <option>CEO / Founder</option>
                   <option>CTO / Tech Lead</option>
                   <option>IT Manager</option>
@@ -142,9 +157,10 @@ const DTLeadCapture = () => {
               <textarea
                 id="challenges"
                 name="message"
+                required
                 rows={3}
                 maxLength={2000}
-                placeholder="Current challenges or goals..."
+                placeholder="Current challenges or goals... *"
                 className="w-full px-4 py-3 rounded-lg bg-hero-foreground/5 border border-hero-foreground/10 text-hero-foreground text-sm placeholder:text-hero-foreground/30 focus:outline-none focus:border-primary/40 resize-none"
               />
               <button

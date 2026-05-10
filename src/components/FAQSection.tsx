@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import {
   Accordion,
@@ -10,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import contactSupportImg from "@/assets/contact-support.png";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -38,10 +38,13 @@ const faqs = [
   },
 ];
 
+import FAQSchema from "./FAQSchema";
+
 const FAQSection = () => {
   const { openContactDialog } = useContactDialog();
   return (
     <section className="py-12 sm:py-16 bg-white overflow-visible">
+      <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
       <div className="container mx-auto px-5 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-start">
           <motion.div
@@ -65,7 +68,7 @@ const FAQSection = () => {
             >
               Contact our team →
             </button>
-            <Image width={800} height={600} src={contactSupportImg.src} alt="Contact support" className="mt-3 w-[280px] md:w-[320px] object-contain" />
+            <Image src={contactSupportImg} alt="Contact support" className="mt-3 w-[280px] md:w-[320px] object-contain" />
           </motion.div>
 
           <Accordion type="single" collapsible className="space-y-4">

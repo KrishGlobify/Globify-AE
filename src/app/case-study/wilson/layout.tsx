@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Wilson Case Study | Globify Portfolio",
   description: "Read the Wilson case study to see how Globify delivered transformative digital solutions, custom development, and measurable ROI.",
-  alternates: { canonical: "/case-study/wilson", languages: {
-      'en-AE': 'https://globify.ae/case-study/wilson',
-      'en-IN': 'https://globify.in/case-study/wilson',
-      'x-default': 'https://globify.ae/case-study/wilson'
-    } },
+  alternates: { canonical: "/case-study/wilson" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -22,9 +18,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             "headline": "Wilson Digital Transformation Case Study",
             "description": "Read the Wilson case study to see how Globify delivered transformative digital solutions and custom development.",
             "author": {
-              "@type": "Organization",
-              "name": "Globify",
-              "sameAs": ["https://www.linkedin.com/company/globify", "https://www.instagram.com/globify"],
+              "@type": "Person",
+              "name": "Sreekanth",
+              "jobTitle": "Lead Digital Architect",
+              "url": "https://globify.ae/about"
             },
             "publisher": {
               "@type": "Organization",

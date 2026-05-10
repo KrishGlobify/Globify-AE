@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, Activity, BarChart3, Users, Shield, Layers, Package,
@@ -17,6 +16,7 @@ import { useContactDialog } from "@/contexts/ContactDialogContext";
 
 import portfolioHealthcare from "@/assets/portfolio-healthcare.jpg";
 import portfolioErp from "@/assets/portfolio-erp.jpg";
+import Image from "next/image";
 
 const products = [
   {
@@ -209,7 +209,7 @@ const ProductsPage = () => {
 
                 {/* Right — Image */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/10">
-                  <Image width={800} height={600}                     src={product.image}
+                  <Image src={product.image}
                     alt={product.name}
                     className="w-full h-[400px] object-cover"
                   />

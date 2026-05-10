@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Shopify Plus Enterprise Agency | Globify UAE",
+  title: "Shopify Plus Enterprise Agency",
   description: "Enterprise e-commerce development with Shopify Plus. Custom checkout, wholesale B2B, and automated workflows.",
-  alternates: { canonical: "https://globify.ae/shopify-plus", languages: {
-      'en-AE': 'https://globify.ae/shopify-plus',
-      'en-IN': 'https://globify.in/shopify-plus',
-      'x-default': 'https://globify.ae/shopify-plus'
-    } },
+  alternates: { canonical: "https://globify.ae/shopify-plus" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ArrowRight, Activity, Users, FileText, Shield, CheckCircle2, Star } from "lucide-react";
 import Link from 'next/link';
 
 import portfolioHealthcare from "@/assets/portfolio-healthcare.jpg";
+import Image from "next/image";
 
 const features = [
   { icon: Activity, title: "Patient Lifecycle Management", desc: "End-to-end tracking from admission to discharge with real-time status updates." },
@@ -49,7 +49,7 @@ const ERPMedoc = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden">
-            <Image width={800} height={600} src={portfolioHealthcare.src} alt="MEDOC Hospital Management System" className="w-full h-[380px] object-cover rounded-2xl" />
+            <Image src={portfolioHealthcare} alt="MEDOC Hospital Management System" className="w-full h-[380px] object-cover rounded-2xl" />
             <div className="absolute inset-0 bg-gradient-to-t from-hero/40 to-transparent rounded-2xl" />
           </motion.div>
         </div>

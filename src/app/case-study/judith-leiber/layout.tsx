@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Judith Leiber Case Study | Globify Portfolio",
   description: "Read the Judith Leiber case study to see how Globify delivered transformative digital solutions, custom development, and measurable ROI.",
-  alternates: { canonical: "/case-study/judith-leiber", languages: {
-      'en-AE': 'https://globify.ae/case-study/judith-leiber',
-      'en-IN': 'https://globify.in/case-study/judith-leiber',
-      'x-default': 'https://globify.ae/case-study/judith-leiber'
-    } },
+  alternates: { canonical: "/case-study/judith-leiber" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -22,9 +18,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             "headline": "Judith Leiber Digital Transformation Case Study",
             "description": "Read the Judith Leiber case study to see how Globify delivered transformative digital solutions and custom development.",
             "author": {
-              "@type": "Organization",
-              "name": "Globify",
-              "sameAs": ["https://www.linkedin.com/company/globify", "https://www.instagram.com/globify"],
+              "@type": "Person",
+              "name": "Sreekanth",
+              "jobTitle": "Lead Digital Architect",
+              "url": "https://globify.ae/about"
             },
             "publisher": {
               "@type": "Organization",

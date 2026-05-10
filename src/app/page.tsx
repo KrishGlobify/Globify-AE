@@ -5,11 +5,9 @@ export const metadata: Metadata = {
   title: "Globify - Design | Build | Scale",
   description:
     "We build high-performance Web Apps, Shopify stores, and AI Automations.",
-  alternates: { canonical: "/", languages: {
-      'en-AE': 'https://globify.ae/',
-      'en-IN': 'https://globify.in/',
-      'x-default': 'https://globify.ae/'
-    } },
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" }, // fallback

@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "WooCommerce Development Agency UAE & India | Expert WordPress Partners | Globify",
+  title: "WooCommerce Development Agency UAE & India | Expert WordPress Partners",
   description: "Top WooCommerce development agency in UAE & India. Custom WooCommerce stores, plugin development, migrations & CRO. Unlimited flexibility with WordPress. Get a free growth plan.",
-  alternates: { canonical: "https://globify.ae/woocommerce-development", languages: {
-      'en-AE': 'https://globify.ae/woocommerce-development',
-      'en-IN': 'https://globify.in/woocommerce-development',
-      'x-default': 'https://globify.ae/woocommerce-development'
-    } },
+  alternates: { canonical: "https://globify.ae/woocommerce-development" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

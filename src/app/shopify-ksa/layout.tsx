@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Shopify Development Agency in Saudi Arabia | E-Commerce Experts",
   description: "Top-rated Shopify development and e-commerce design services in Saudi Arabia. We build high-converting, scalable Shopify and Shopify Plus stores.",
-  alternates: { canonical: "https://globify.ae/shopify-ksa", languages: {
-      'en-AE': 'https://globify.ae/shopify-ksa',
-      'en-IN': 'https://globify.in/shopify-ksa',
-      'x-default': 'https://globify.ae/shopify-ksa'
-    } },
+  alternates: { canonical: "https://globify.ae/shopify-ksa" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

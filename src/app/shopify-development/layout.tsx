@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Shopify Development Company | Globify UAE",
+  title: "Shopify Development Company",
   description: "Expert Shopify development, theme customization, and e-commerce solutions for scalable online stores.",
-  alternates: { canonical: "https://globify.ae/shopify-development", languages: {
-      'en-AE': 'https://globify.ae/shopify-development',
-      'en-IN': 'https://globify.in/shopify-development',
-      'x-default': 'https://globify.ae/shopify-development'
-    } },
+  alternates: { canonical: "https://globify.ae/shopify-development" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

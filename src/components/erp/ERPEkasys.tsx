@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ArrowRight, Package, TrendingUp, Layers, BarChart3, CheckCircle2, Star } from "lucide-react";
 import Link from 'next/link';
 
 import portfolioErp from "@/assets/portfolio-erp.jpg";
+import Image from "next/image";
 
 const features = [
   { icon: Package, title: "Inventory & Warehouse", desc: "Real-time stock visibility, multi-warehouse management, and automated reorder points." },
@@ -22,7 +22,7 @@ const ERPEkasys = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden lg:order-1 order-2">
-            <Image width={800} height={600} src={portfolioErp.src} alt="EKASYS Enterprise Resource Planning" className="w-full h-[380px] object-cover rounded-2xl" />
+            <Image src={portfolioErp} alt="EKASYS Enterprise Resource Planning" className="w-full h-[380px] object-cover rounded-2xl" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent rounded-2xl" />
           </motion.div>
 

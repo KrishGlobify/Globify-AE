@@ -8,7 +8,6 @@ import {
   lazy,
   Suspense,
 } from "react";
-import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -22,6 +21,7 @@ const StarfieldLayer = lazy(() => import("./hero-globe/StarfieldLayer"));
 const ParticleTrails = lazy(() => import("./hero-globe/ParticleTrails"));
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 const GlobeScene = dynamic(() => import("./hero-globe/GlobeScene"), {
   ssr: false,
 });
@@ -116,9 +116,9 @@ const DraggableMoon = ({ isMobile }: { isMobile: boolean }) => {
       }}
       onPointerDown={onPointerDown}
     >
-      <Image width={800} height={600}         src="/textures/moon-clean.png"
+      <Image src="/textures/moon-clean.png"
         alt=""
-        
+        draggable={false}
         className="w-full h-full object-cover"
         style={{
           borderRadius: "50%",
@@ -345,7 +345,7 @@ const HeroSection = () => {
                     ease: easeOut,
                   }}
                 >
-                  {word}
+                  {word}{" "}
                 </motion.span>
               ))}
             </span>
@@ -353,14 +353,13 @@ const HeroSection = () => {
             {/* Line 2: "Scale Without Limits.", orange gradient */}
             <span className="block mt-2 text-shimmer">
               {/* "Technology" on its own line for both Desktop and Mobile */}
-              <span className="block">Technology</span>
-              {" "}
+              <span className="block">Technology{" "}</span>
+
               {/* Desktop: "Partner for Scalable Growth" stays on one line.
       Mobile: "Partner for" and "Scalable Growth" split into two lines.
   */}
               <span className="block md:flex md:whitespace-nowrap md:gap-x-[0.25em]">
-                <span className="block md:inline">Partner for</span>
-                {" "}
+                <span className="block md:inline">Partner for{" "}</span>
                 <span className="block md:inline">Scalable Growth</span>
               </span>
             </span>

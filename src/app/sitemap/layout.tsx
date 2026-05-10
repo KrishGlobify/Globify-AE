@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Sitemap | Globify",
+  title: "Sitemap",
   description: "Browse all pages on the Globify website.",
   
 };

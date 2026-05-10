@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Globe, Smartphone, Cpu, Megaphone, ShoppingCart, Database,
@@ -14,6 +13,7 @@ import Footer from "@/components/Footer";
 
 import CrossLinkSection from "@/components/CrossLinkSection";
 import Link from 'next/link';
+import { toast } from "sonner";
 
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import ProcessSection from "@/components/ProcessSection";
@@ -44,6 +44,8 @@ import CaseStudiesSection from "@/components/CaseStudiesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 import servicesHero from "@/assets/services-hero.jpg";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const services = [
   {
@@ -165,6 +167,7 @@ const faqs = [
 ];
 
 const ServiceFAQ = () => {
+  const router = useRouter();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <div className="space-y-4">
@@ -200,6 +203,7 @@ const ServiceFAQ = () => {
 };
 
 const ServicesPage = () => {
+  const router = useRouter();
   const { openContactDialog } = useContactDialog();
   return (
     <div className="min-h-screen">
@@ -210,7 +214,7 @@ const ServicesPage = () => {
       <section className="pt-28 pb-20 bg-[#0a0a1a] relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a1a] via-[#0a0a1a]/95 to-transparent z-10" />
         <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-          <Image width={800} height={600} src={servicesHero.src} alt="Services" className="w-full h-full object-cover" />
+          <Image src={servicesHero} alt="Services" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a1a] to-transparent" />
         </div>
         <div className="container mx-auto px-6 relative z-20">
@@ -285,7 +289,7 @@ const ServicesPage = () => {
               <div className="flex">
                 <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
                   {servicesClients.map((client) => (
-                    <Image width={800} height={600}                       key={client.name}
+                    <Image key={client.name}
                       src={client.logo}
                       alt={client.name}
                       loading="lazy"
@@ -297,7 +301,7 @@ const ServicesPage = () => {
                 </div>
                 <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
                   {servicesClients.map((client) => (
-                    <Image width={800} height={600}                       key={`${client.name}-dup`}
+                    <Image key={`${client.name}-dup`}
                       src={client.logo}
                       alt={client.name}
                       loading="lazy"
@@ -738,17 +742,41 @@ const ServicesPage = () => {
 
             {/* Lead Form */}
             <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto mb-6"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const formData = new FormData(form);
+                try {
+                  const res = await fetch("/api/contact", { method: "POST", body: formData });
+                  if (!res.ok) throw new Error();
+                  toast.success("Request Submitted!", { description: "We'll get back to you within 24 hours." });
+    router.push("/thank-you");
+                  form.reset();
+                } catch {
+                  toast.error("Something went wrong. Please try again.");
+                }
+              }}
+              className="space-y-3 max-w-lg mx-auto mb-6"
             >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-5 py-3.5 rounded-full bg-white/[0.06] border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-primary/50 transition-colors"
-              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input
+                  required
+                  name="email"
+                  type="email"
+                  placeholder="Work Email *"
+                  className="w-full px-5 py-3.5 rounded-full bg-white/[0.06] border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                />
+                <input
+                  required
+                  name="phone"
+                  type="tel"
+                  placeholder="Phone Number *"
+                  className="w-full px-5 py-3.5 rounded-full bg-white/[0.06] border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                />
+              </div>
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3 flex-shrink-0"
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3"
               >
                 Get a Free Quote
                 <Send className="w-4 h-4" />

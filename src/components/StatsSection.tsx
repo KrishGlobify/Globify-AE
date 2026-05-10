@@ -11,20 +11,14 @@ const stats = [
 ];
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
-  const [count, setCount] = useState(value); // SSR renders the real number
+  const [count, setCount] = useState(value); // Initialize with final value for SEO
   const ref = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
-  const hasMounted = useRef(false);
-
-  // On mount, reset to 0 so the animation can play
-  useEffect(() => {
-    if (!hasMounted.current) {
-      hasMounted.current = true;
-      setCount(0);
-    }
-  }, []);
 
   useEffect(() => {
+    // Reset to 0 on client mount to allow animation
+    setCount(0);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {

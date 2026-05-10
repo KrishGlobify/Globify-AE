@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from 'next/navigation';import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Globe, Smartphone, Cpu, Megaphone, ShoppingCart, Database, ArrowRight, Stethoscope, BarChart3, Factory, Truck, Package, Activity, Users } from "lucide-react";
 import Link from 'next/link';
@@ -12,12 +11,13 @@ import megaMenuServices from "@/assets/mega-menu-services.jpg";
 import megaMenuIndustries from "@/assets/mega-menu-industries.jpg";
 import megaMenuProducts from "@/assets/mega-menu-products.jpg";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
+import Image from "next/image";
 
 // Defer mega menu image preloads so they don't compete with critical resources
 if (typeof window !== "undefined") {
   const preload = () => {
     [megaMenuServices, megaMenuIndustries, megaMenuProducts].forEach((imgObj) => {
-      const img = new (globalThis as any).Image();
+      const img = new window.Image();
       img.src = imgObj.src;
     });
   };
@@ -35,7 +35,6 @@ const servicesMenu = [
   { icon: Megaphone, title: "Digital Marketing", desc: "SEO, PPC & growth strategies", href: "/digital-marketing" },
   { icon: ShoppingCart, title: "E-Commerce", desc: "Shopify, headless & custom stores", href: "/ecommerce" },
   { icon: Database, title: "ERP Solutions", desc: "Custom enterprise resource planning", href: "/erp-solutions" },
-  { icon: Activity, title: "Digital Transformation", desc: "End-to-end business scaling", href: "/digital-transformation" },
 ];
 
 const ecommercePlatforms = [
@@ -146,7 +145,7 @@ const Navbar = () => {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services", mega: "services" as MegaMenuKey },
-    { label: "Industries", href: "/industries", mega: "industries" as MegaMenuKey },
+    { label: "Industries", href: "/industries/healthcare", mega: "industries" as MegaMenuKey },
     { label: "Products", href: "/products", mega: "products" as MegaMenuKey },
     { label: "Our Projects", href: "/projects" },
     { label: "Resources", href: "/resources" },
@@ -160,7 +159,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <div className="bg-white rounded-md px-3 py-1.5">
-            <Image src={globifyLogo.src} alt="Globify - Design · Build · Scale" className="h-7 w-auto" width={120} height={28} />
+            <Image src={globifyLogo} alt="Globify - Design · Build · Scale" className="h-7 w-auto" width={120} height={28} />
           </div>
         </Link>
 
@@ -209,13 +208,13 @@ const Navbar = () => {
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="https://wa.me/919544086877?text=Hi%20Globify%2C%20I%27m%20interested%20in%20your%20services."
+            href="https://wa.me/971547308673?text=Hi%20Globify%2C%20I%27m%20interested%20in%20your%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 hover:opacity-80 transition-opacity"
             aria-label="Chat on WhatsApp"
-          >
-            <Image src={whatsappIcon.src} alt="WhatsApp" className="w-full h-full object-cover" width={36} height={36} />
+           onClick={() => typeof window !== "undefined" && (window as any).gtag && (window as any).gtag('event', 'contact_whatsapp')}>
+            <Image src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-cover" width={36} height={36} />
           </a>
           <button
             onClick={openContactDialog}
@@ -255,7 +254,7 @@ const Navbar = () => {
                     href="/services"
                     className="group flex-shrink-0 w-[280px] rounded-[20px] relative overflow-hidden flex flex-col justify-end"
                   >
-                    <Image width={800} height={600} src={megaMenuServices.src} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                    <Image src={megaMenuServices} alt="" className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                     <div className="relative z-10 p-7 pt-32">
                       <p className="text-hero-foreground font-semibold text-[20px] leading-[1.2] mb-1">Solutions that drive business results</p>
@@ -282,11 +281,6 @@ const Navbar = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground/50 mb-5">Growth</p>
-                      {/* Digital Transformation */}
-                      <Link href="/digital-transformation" className="block mb-6 group">
-                        <p className="text-[16px] font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">Digital Transformation</p>
-                        <p className="text-sm text-muted-foreground/70 mt-1 leading-relaxed">End-to-end business scaling</p>
-                      </Link>
                       {/* AI & Automation */}
                       <Link href="/ai-automation" className="block mb-6 group">
                         <p className="text-[16px] font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">AI & Automation</p>
@@ -333,7 +327,7 @@ const Navbar = () => {
                     href="/industries/healthcare"
                     className="group flex-shrink-0 w-[280px] rounded-[20px] relative overflow-hidden flex flex-col justify-end"
                   >
-                    <Image width={800} height={600} src={megaMenuIndustries.src} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                    <Image src={megaMenuIndustries} alt="" className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                     <div className="relative z-10 p-7 pt-32">
                       <p className="text-hero-foreground font-semibold text-[20px] leading-[1.2] mb-1">Tailored solutions across verticals</p>
@@ -384,7 +378,7 @@ const Navbar = () => {
                     href="/products"
                     className="group flex-shrink-0 w-[280px] rounded-[20px] relative overflow-hidden flex flex-col justify-end"
                   >
-                    <Image width={800} height={600} src={megaMenuProducts.src} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                    <Image src={megaMenuProducts} alt="" className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                     <div className="relative z-10 p-7 pt-32">
                       <p className="text-hero-foreground font-semibold text-[20px] leading-[1.2] mb-1">Enterprise-grade platforms</p>

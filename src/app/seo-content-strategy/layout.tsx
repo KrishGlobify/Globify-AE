@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "SEO, AEO & Content Strategy, Organic Growth That Compounds",
   description: "Data-driven SEO, AEO, and content marketing services. Technical SEO, answer engine optimization, content strategy, link building, and local SEO that drives sustainable organic traffic and leads.",
-  alternates: { canonical: "https://globify.ae/seo-content-strategy", languages: {
-      'en-AE': 'https://globify.ae/seo-content-strategy',
-      'en-IN': 'https://globify.in/seo-content-strategy',
-      'x-default': 'https://globify.ae/seo-content-strategy'
-    } },
+  alternates: { canonical: "https://globify.ae/seo-content-strategy" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

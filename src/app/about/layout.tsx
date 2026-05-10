@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "About Globify — AI Transformation & Digital Commerce Leaders",
   description: "Globify delivers AI-powered digital transformation, ML engineering, and revenue optimization. 300+ transformations, $200M+ revenue engineered across 10+ countries.",
-  alternates: { canonical: "https://globify.ae/about", languages: {
-      'en-AE': 'https://globify.ae/about',
-      'en-IN': 'https://globify.in/about',
-      'x-default': 'https://globify.ae/about'
-    } },
+  alternates: { canonical: "https://globify.ae/about" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Send, Loader2 } from "lucide-react";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import contactSupportImg from "@/assets/contact-support.png";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const WebDevLeadCapture = () => {
   const { openContactDialog } = useContactDialog();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -22,9 +24,11 @@ const WebDevLeadCapture = () => {
         body: formData,
       });
       if (!res.ok) throw new Error("Failed to submit");
+      typeof window !== "undefined" && (window as any).gtag && (window as any).gtag('event', 'generate_lead');
       toast.success("Consultation Requested!", {
         description: "We'll get back to you within 24 hours.",
       });
+    router.push("/thank-you");
       (e.target as HTMLFormElement).reset();
     } catch (error) {
       toast.error("Something went wrong. Please try again later.");
@@ -79,7 +83,7 @@ const WebDevLeadCapture = () => {
                 onClick={openContactDialog}
                 className="inline-flex items-center gap-3 text-sm font-semibold text-primary hover:gap-4 transition-all group"
               >
-                <Image width={800} height={600}                   src={contactSupportImg.src}
+                <Image src={contactSupportImg}
                   alt="Contact support"
                   className="w-8 h-8 rounded-full object-cover"
                 />
@@ -125,18 +129,32 @@ const WebDevLeadCapture = () => {
                   />
                 </div>
               </div>
-              <div>
-                <label className="text-sm font-semibold text-foreground/70 mb-1.5 block">
-                  Email Address *
-                </label>
-                <input
-                  required
-                  type="email"
-                  name="email"
-                  maxLength={255}
-                  placeholder="john@company.com"
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-sm placeholder:text-muted-foreground/40 focus:outline-none focus:border-primary transition-colors"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-sm font-semibold text-foreground/70 mb-1.5 block">
+                    Email Address *
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    maxLength={255}
+                    placeholder="john@company.com"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-sm placeholder:text-muted-foreground/40 focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="text-sm font-semibold text-foreground/70 mb-1.5 block">
+                    Phone Number *
+                  </label>
+                  <input
+                    required
+                    type="tel"
+                    name="phone"
+                    placeholder="+971 50 000 0000"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-sm placeholder:text-muted-foreground/40 focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
               </div>
               <div>
                 <label className="text-sm font-semibold text-foreground/70 mb-1.5 block">
@@ -158,9 +176,10 @@ const WebDevLeadCapture = () => {
               </div>
               <div>
                 <label className="text-sm font-semibold text-foreground/70 mb-1.5 block">
-                  Estimated Budget
+                  Estimated Budget *
                 </label>
                 <select
+                  required
                   name="budget"
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border text-sm text-foreground focus:outline-none focus:border-primary transition-colors appearance-none"
                 >
@@ -174,9 +193,10 @@ const WebDevLeadCapture = () => {
               </div>
               <div>
                 <label className="text-sm font-semibold text-foreground/70 mb-1.5 block">
-                  Tell Us About Your Project
+                  Tell Us About Your Project *
                 </label>
                 <textarea
+                  required
                   rows={4}
                   name="message"
                   maxLength={1000}

@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Globify",
+  title: "Terms of Service",
   description: "Review Globify's Terms of Service covering usage of our digital solutions, web development, and technology consulting services.",
-  alternates: { canonical: "https://globify.ae/terms-of-service", languages: {
-      'en-AE': 'https://globify.ae/terms-of-service',
-      'en-IN': 'https://globify.in/terms-of-service',
-      'x-default': 'https://globify.ae/terms-of-service'
-    } },
+  alternates: { canonical: "https://globify.ae/terms-of-service" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

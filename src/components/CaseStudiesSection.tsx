@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useCallback, useEffect } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
 import Link from 'next/link';
@@ -17,6 +16,7 @@ import portfolioBeflare from "@/assets/portfolio-beflare.jpg";
 import portfolioEkasysRetail from "@/assets/portfolio-ekasys-retail.jpg";
 import portfolioMedoc from "@/assets/portfolio-medoc.jpeg";
 import portfolioEkasysRE from "@/assets/portfolio-ekasys-realestate.jpg";
+import Image from "next/image";
 
 const projects = [
   {
@@ -253,12 +253,12 @@ const CaseStudiesSection = () => {
               <>
                 {/* Image */}
                 <div className="relative h-[400px] md:h-[450px] overflow-hidden">
-                  <Image width={800} height={600}                     src={project.image}
+                  <Image src={project.image}
                     alt={project.title}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                    
+                    draggable={false}
                   />
                   {/* Strong gradient overlay for text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/70 to-[#0a0a1a]/20" />

@@ -72,7 +72,7 @@ const PrivacyPolicy = () => {
                   onClick={() => window.location.href = ['ma','ilto:','sa','les@','glo','bify','.in'].join('')}
                   className="text-primary hover:underline cursor-pointer"
                 >
-                  sales@globify.in
+                  sales@globify.ae
                 </button>
               </p>
             </section>

@@ -1,10 +1,10 @@
 "use client";
 
 import { Mail, Phone, MapPin, ShieldCheck, Award, BadgeCheck, Star } from "lucide-react";
-import Image from "next/image";
 import Link from 'next/link';
 
 import globifyLogo from "@/assets/globify-logo.png";
+import Image from "next/image";
 
 const offices = [
   {
@@ -31,7 +31,6 @@ const Footer = () => {
     { label: "E-Commerce", href: "/ecommerce" },
     { label: "Shopify Development", href: "/shopify-development" },
     { label: "Digital Marketing", href: "/digital-marketing" },
-    { label: "Digital Transformation", href: "/digital-transformation" },
     { label: "AI & Automation", href: "/ai-automation" },
     { label: "ERP Solutions", href: "/erp-solutions" },
     { label: "AI Transformation Framework", href: "/ai-transformation-framework" },
@@ -45,7 +44,6 @@ const Footer = () => {
     { label: "Blog", href: "/blog" },
     { label: "Resources", href: "/resources" },
     { label: "Sitemap", href: "/sitemap" },
-    { label: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -62,7 +60,16 @@ const Footer = () => {
                 <h5 className="font-semibold text-section-dark-foreground text-sm">{office.city}</h5>
               </div>
               <p className="text-sm text-section-dark-foreground/40 leading-relaxed mb-3">{office.address}</p>
-              <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-section-dark-foreground/50 hover:text-primary transition-colors">
+              <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-section-dark-foreground/50 hover:text-primary transition-colors" onClick={() => {
+                if (typeof window !== "undefined" && (window as any).gtag) {
+                  (window as any).gtag('event', 'contact_call');
+                  (window as any).gtag('event', 'conversion', {
+                    send_to: 'AW-17163382693/470NCM_1kqEcEKXfkfg_',
+                    value: 1.0,
+                    currency: 'AED'
+                  });
+                }
+              }}>
                 <Phone className="w-3.5 h-3.5" /> {office.phone}
               </a>
             </div>
@@ -78,19 +85,19 @@ const Footer = () => {
           <div className="col-span-2 lg:col-span-1">
             <div className="mb-6">
               <div className="bg-white rounded-md px-3 py-1.5 inline-block">
-                <Image src={globifyLogo.src} alt="Globify - Design · Build · Scale" className="h-7 w-auto" width={120} height={28} />
+                <Image src={globifyLogo} alt="Globify - Design · Build · Scale" className="h-7 w-auto" width={120} height={28} />
               </div>
             </div>
             <p className="text-sm text-section-dark-foreground/50 leading-relaxed mb-6">
               Empowering businesses with innovative digital solutions, from custom development to AI-driven automation.
             </p>
             <div className="space-y-3">
-              <a
-                href="mailto:sales@globify.in"
-                className="flex items-center gap-2 text-sm text-section-dark-foreground/50 hover:text-primary transition-colors"
+              <button
+                onClick={() => window.location.href = ['ma','ilto:','sa','les@','glo','bify','.in'].join('')}
+                className="flex items-center gap-2 text-sm text-section-dark-foreground/50 hover:text-primary transition-colors cursor-pointer"
               >
-                <Mail className="w-4 h-4" /> sales@globify.in
-              </a>
+                <Mail className="w-4 h-4" /> <span>sales<span className="hidden">nospam</span>@globify.in</span>
+              </button>
             </div>
 
             {/* Trust Badges */}

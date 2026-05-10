@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI-Native SaaS Development — Intelligent Products & ML-Powered MVPs | Globify",
+  title: "AI-Native SaaS Development — Intelligent Products & ML-Powered MVPs",
   description: "Globify builds AI-native SaaS products with embedded ML models, LLM integrations, and intelligent automation. AEO-optimized. Launch AI MVPs in 3 weeks.",
-  alternates: { canonical: "https://globify.ae/industries/saas-startups", languages: {
-      'en-AE': 'https://globify.ae/industries/saas-startups',
-      'en-IN': 'https://globify.in/industries/saas-startups',
-      'x-default': 'https://globify.ae/industries/saas-startups'
-    } },
+  alternates: { canonical: "https://globify.ae/industries/saas-startups" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

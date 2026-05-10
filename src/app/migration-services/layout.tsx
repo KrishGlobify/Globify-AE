@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "E-Commerce Migration Services | Zero Downtime | Globify",
+  title: "E-Commerce Migration Services | Zero Downtime",
   description: "Migrate your store to Shopify, WooCommerce, or headless commerce. Zero downtime, full SEO preservation, complete data migration. 100+ successful migrations.",
-  alternates: { canonical: "https://globify.ae/migration-services", languages: {
-      'en-AE': 'https://globify.ae/migration-services',
-      'en-IN': 'https://globify.in/migration-services',
-      'x-default': 'https://globify.ae/migration-services'
-    } },
+  alternates: { canonical: "https://globify.ae/migration-services" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

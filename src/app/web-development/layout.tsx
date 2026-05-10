@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Web Development Services, Shopify, WordPress & Custom",
   description: "Professional web development services for UAE and India. Shopify, WordPress, custom websites with CRO optimization. Fast, secure, and conversion-focused.",
-  alternates: { canonical: "https://globify.ae/web-development", languages: {
-      'en-AE': 'https://globify.ae/web-development',
-      'en-IN': 'https://globify.in/web-development',
-      'x-default': 'https://globify.ae/web-development'
-    } },
+  alternates: { canonical: "https://globify.ae/web-development" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

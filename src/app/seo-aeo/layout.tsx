@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "SEO & AEO Services — Search & Answer Engine Optimization",
   description: "Advanced SEO and Answer Engine Optimization (AEO) services: technical SEO, content strategy, link building, and AI search optimization for ChatGPT, Perplexity & Google AI.",
-  alternates: { canonical: "https://globify.ae/seo-aeo", languages: {
-      'en-AE': 'https://globify.ae/seo-aeo',
-      'en-IN': 'https://globify.in/seo-aeo',
-      'x-default': 'https://globify.ae/seo-aeo'
-    } },
+  alternates: { canonical: "https://globify.ae/seo-aeo" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

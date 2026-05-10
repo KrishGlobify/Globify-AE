@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import { ArrowRight, CheckCircle2, Shield, Lightbulb, Users, Eye, Target, Award, Handshake, BarChart3, Globe, Zap, Heart, Star, Building, Stethoscope, Smartphone, Factory, GraduationCap, ShoppingCart, Truck, Dumbbell, Brain, Bot, TrendingUp, Cpu, Database, Network, Sparkles, LineChart } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -9,6 +8,7 @@ import Footer from "@/components/Footer";
 import Link from 'next/link';
 import CrossLinkSection from "@/components/CrossLinkSection";
 import agencyImg from "@/assets/agency-services.jpg";
+import Image from "next/image";
 
 const stats = [
   { value: "300+", label: "AI-Powered Transformations" },
@@ -319,7 +319,7 @@ const AboutUs = () => {
               {/* Agency visual + highlights */}
               <div>
                 <div className="rounded-2xl overflow-hidden mb-6 border border-border">
-                  <Image width={800} height={600} src={agencyImg.src} alt="Globify digital agency workspace" className="w-full h-48 object-cover" loading="lazy" />
+                  <Image src={agencyImg} alt="Globify digital agency workspace" className="w-full h-48 object-cover" loading="lazy" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-5 rounded-2xl border border-hero-foreground/[0.06] hover:border-primary/20 transition-all">

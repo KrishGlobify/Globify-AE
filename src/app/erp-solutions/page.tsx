@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import ErpSolutionsClient from "./ErpSolutionsClient";
 
 export const metadata: Metadata = {
-  title: "Custom ERP Software & Healthcare Solutions | Globify UAE",
+  title: "Custom ERP Software & Healthcare Solutions",
   description: "Deploy scalable ERP solutions. Globify specializes in enterprise resource planning, logistics logistics tracking, and MEDOC hospital management systems.",
-  alternates: { canonical: "/erp-solutions", languages: {
-      'en-AE': 'https://globify.ae/erp-solutions',
-      'en-IN': 'https://globify.in/erp-solutions',
-      'x-default': 'https://globify.ae/erp-solutions'
-    } },
+  alternates: {
+    canonical: "/erp-solutions",
+  },
 };
 
 export default function Page() {

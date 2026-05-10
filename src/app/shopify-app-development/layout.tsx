@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Custom Shopify App Development | Globify UAE",
+  title: "Custom Shopify App Development",
   description: "Build public or custom private Shopify apps to automate workflows, integrate ERPs, and enhance your store functionality.",
-  alternates: { canonical: "https://globify.ae/shopify-app-development", languages: {
-      'en-AE': 'https://globify.ae/shopify-app-development',
-      'en-IN': 'https://globify.in/shopify-app-development',
-      'x-default': 'https://globify.ae/shopify-app-development'
-    } },
+  alternates: { canonical: "https://globify.ae/shopify-app-development" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

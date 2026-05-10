@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Globify",
+  title: "Privacy Policy",
   description: "Globify's Privacy Policy explains how we collect, use, and protect your personal data when you use our digital services.",
-  alternates: { canonical: "https://globify.ae/privacy-policy", languages: {
-      'en-AE': 'https://globify.ae/privacy-policy',
-      'en-IN': 'https://globify.in/privacy-policy',
-      'x-default': 'https://globify.ae/privacy-policy'
-    } },
+  alternates: { canonical: "https://globify.ae/privacy-policy" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

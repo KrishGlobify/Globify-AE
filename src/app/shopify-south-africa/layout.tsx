@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Shopify Development Agency in South Africa | E-Commerce Experts",
   description: "Top-rated Shopify development and e-commerce design services in South Africa. We build high-converting, scalable Shopify and Shopify Plus stores.",
-  alternates: { canonical: "https://globify.ae/shopify-south-africa", languages: {
-      'en-AE': 'https://globify.ae/shopify-south-africa',
-      'en-IN': 'https://globify.in/shopify-south-africa',
-      'x-default': 'https://globify.ae/shopify-south-africa'
-    } },
+  alternates: { canonical: "https://globify.ae/shopify-south-africa" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

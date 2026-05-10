@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import BlogClient from "./BlogClient";
 
-export default function BlogPage() {
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Explore our Blog services and solutions at Globify.",
+  alternates: {
+    canonical: "/blog",
+  },
+};
+
+export default function Page() {
   return <BlogClient />;
 }

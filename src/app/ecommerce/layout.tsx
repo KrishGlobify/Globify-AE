@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "E-Commerce Solutions, Shopify, WooCommerce & Custom",
   description: "End-to-end e-commerce solutions for UAE and India. Shopify, WooCommerce, marketplace integration, ERP connectivity, and growth optimization.",
-  alternates: { canonical: "https://globify.ae/ecommerce", languages: {
-      'en-AE': 'https://globify.ae/ecommerce',
-      'en-IN': 'https://globify.in/ecommerce',
-      'x-default': 'https://globify.ae/ecommerce'
-    } },
+  alternates: { canonical: "https://globify.ae/ecommerce" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

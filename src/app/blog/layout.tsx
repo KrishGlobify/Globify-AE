@@ -3,11 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Blog — Digital Commerce Insights & Trends",
   description: "Expert insights on e-commerce, Shopify, WordPress, mobile apps, AI automation, and marketplace strategies for businesses in UAE and India.",
-  alternates: { canonical: "https://globify.ae/blog", languages: {
-      'en-AE': 'https://globify.ae/blog',
-      'en-IN': 'https://globify.in/blog',
-      'x-default': 'https://globify.ae/blog'
-    } },
+  alternates: { canonical: "https://globify.ae/blog" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

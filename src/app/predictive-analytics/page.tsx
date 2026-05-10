@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import PredictiveAnalyticsClient from "./PredictiveAnalyticsClient";
 
 export const metadata: Metadata = {
-  title: "Predictive Analytics & Machine Learning Solutions | Globify",
+  title: "Predictive Analytics & Machine Learning Solutions",
   description: "Engineer custom machine learning models to forecast demand, detect fraud, and optimize inventory operations with Globify's Enterprise AI pipeline.",
-  alternates: { canonical: "/predictive-analytics", languages: {
-      'en-AE': 'https://globify.ae/predictive-analytics',
-      'en-IN': 'https://globify.in/predictive-analytics',
-      'x-default': 'https://globify.ae/predictive-analytics'
-    } },
+  alternates: {
+    canonical: "/predictive-analytics",
+  },
 };
 
 export default function Page() {

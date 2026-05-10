@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface ContactFormDialogProps {
   open: boolean;
@@ -56,6 +57,7 @@ const ContactFormDialog = ({
   onOpenChange,
   selectedPlan,
 }: ContactFormDialogProps) => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleClose = (val: boolean) => {
@@ -78,9 +80,11 @@ const ContactFormDialog = ({
 
       if (!res.ok) throw new Error("Failed to submit");
 
+      typeof window !== "undefined" && (window as any).gtag && (window as any).gtag('event', 'generate_lead');
       toast.success("Thank you for reaching out!", {
         description: "We'll get back to you within 24 hours.",
       });
+    router.push("/thank-you");
       handleClose(false);
     } catch (error) {
       toast.error("Something went wrong. Please try again later.");
@@ -140,11 +144,12 @@ const ContactFormDialog = ({
                 htmlFor="phone"
                 className="text-hero-foreground/70 text-sm"
               >
-                Phone
+                Phone *
               </Label>
               <Input
                 id="phone"
                 name="phone"
+                required
                 maxLength={20}
                 placeholder="+971 50 000 0000"
                 className="bg-hero-foreground/5 border-hero-foreground/10 text-hero-foreground placeholder:text-hero-foreground/30"
@@ -171,11 +176,12 @@ const ContactFormDialog = ({
               htmlFor="service"
               className="text-hero-foreground/70 text-sm"
             >
-              Service Interested In
+              Service Interested In *
             </Label>
             <select
               id="service"
               name="service"
+              required
               defaultValue={detectedService}
               className="w-full h-10 rounded-md border bg-hero-foreground/5 border-hero-foreground/10 text-hero-foreground px-3 text-sm"
             >
@@ -244,6 +250,16 @@ const ContactFormDialog = ({
               className="bg-hero-foreground/5 border-hero-foreground/10 text-hero-foreground placeholder:text-hero-foreground/30 resize-none"
             />
           </div>
+          <label className="flex items-start gap-3 mt-2 mb-1 cursor-pointer">
+            <input 
+              type="checkbox" 
+              required 
+              className="mt-1 flex-shrink-0 w-4 h-4 rounded border-hero-foreground/20 text-primary focus:ring-primary/50 bg-hero-foreground/[0.04]"
+            />
+            <span className="text-[11px] text-hero-foreground/50 leading-tight">
+              By submitting this form, you agree to our <a href="/privacy-policy" className="underline hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and consent to having this website store your submitted information.
+            </span>
+          </label>
           <Button
             type="submit"
             disabled={isSubmitting}

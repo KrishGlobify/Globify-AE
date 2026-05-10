@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI-Powered Manufacturing, Predictive Maintenance & Autonomous Production | Globify",
+  title: "AI-Powered Manufacturing, Predictive Maintenance & Autonomous Production",
   description: "Globify builds AI-powered smart factory platforms with predictive maintenance, computer vision quality control, and autonomous production optimization. AEO-optimized. 45% OEE improvement.",
-  alternates: { canonical: "https://globify.ae/industries/manufacturing", languages: {
-      'en-AE': 'https://globify.ae/industries/manufacturing',
-      'en-IN': 'https://globify.in/industries/manufacturing',
-      'x-default': 'https://globify.ae/industries/manufacturing'
-    } },
+  alternates: { canonical: "https://globify.ae/industries/manufacturing" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

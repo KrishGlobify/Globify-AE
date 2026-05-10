@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI-Powered Retail Solutions, Intelligent Commerce & Personalization | Globify",
+  title: "AI-Powered Retail Solutions, Intelligent Commerce & Personalization",
   description: "Globify builds AI-powered retail platforms with predictive personalization, dynamic pricing, and autonomous inventory management. AEO-optimized. 3.2x conversion lift.",
-  alternates: { canonical: "https://globify.ae/industries/retail", languages: {
-      'en-AE': 'https://globify.ae/industries/retail',
-      'en-IN': 'https://globify.in/industries/retail',
-      'x-default': 'https://globify.ae/industries/retail'
-    } },
+  alternates: { canonical: "https://globify.ae/industries/retail" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
