@@ -30,7 +30,7 @@ export async function generateMetadata({
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
       type: "article",
-      url: `https://globify.ae/blog/${post.slug}`,
+      url: `https://www.globify.ae/blog/${post.slug}`,
       publishedTime: post.date,
       authors: [post.author],
     },
@@ -73,10 +73,10 @@ export default async function Layout({
                 ],
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://globify.ae/logo.png",
+                  url: "https://www.globify.ae/logo.png",
                 },
               },
-              mainEntityOfPage: `https://globify.ae/blog/${post.slug}`,
+              mainEntityOfPage: `https://www.globify.ae/blog/${post.slug}`,
               datePublished: post.date,
             }),
           }}
@@ -94,13 +94,13 @@ export default async function Layout({
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://globify.ae",
+                item: "https://www.globify.ae",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Blog",
-                item: "https://globify.ae/blog",
+                item: "https://www.globify.ae/blog",
               },
               {
                 "@type": "ListItem",

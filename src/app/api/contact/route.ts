@@ -72,7 +72,7 @@ export async function POST(request: Request) {
             <h2 style="color: #E8590C; font-size: 20px; margin-top: 0; margin-bottom: 16px;">Thanks for reaching out!</h2>
             <p style="font-size: 16px; line-height: 1.5; margin-bottom: 16px;">Hi ${name ? name.split(' ')[0] : 'there'},</p>
             <p style="font-size: 16px; line-height: 1.5; margin-bottom: 16px; color: #4A4A4A;">We've received your request and our team is currently reviewing it. One of our experts will get back to you within 24 hours.</p>
-            <p style="font-size: 16px; line-height: 1.5; margin-bottom: 24px; color: #4A4A4A;">If you have any immediate questions, feel free to reply directly to this email.</p>
+            <p style="font-size: 16px; line-height: 1.5; margin-bottom: 24px; color: #4A4A4A;">If you have any immediate questions, feel free to reply directly to Sales@globify.ae</p>
             <hr style="border: none; border-top: 1px solid #E5E5E5; margin: 24px 0;">
             <p style="font-size: 15px; margin: 0; color: #171717;">Best regards,<br/><strong style="color: #E8590C;">The Globify Team</strong></p>
           </div>

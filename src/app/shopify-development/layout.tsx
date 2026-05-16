@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Shopify Development Company",
   description: "Expert Shopify development, theme customization, and e-commerce solutions for scalable online stores.",
-  alternates: { canonical: "https://globify.ae/shopify-development" },
+  alternates: { canonical: "https://www.globify.ae/shopify-development" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -21,10 +21,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               "@type": "Organization",
               "name": "Globify",
               "sameAs": ["https://www.linkedin.com/company/globify", "https://www.instagram.com/globify"],
-              "url": "https://globify.ae"
+              "url": "https://www.globify.ae"
             },
             "areaServed": ["United Arab Emirates", "India", "Global"],
-            "url": "https://globify.ae/shopify-development"
+            "url": "https://www.globify.ae/shopify-development"
           })
         }}
       />
@@ -35,7 +35,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://globify.ae"},{"@type":"ListItem","position":2,"name":"Shopify development","item":"https://globify.ae/shopify-development"}]
+            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://www.globify.ae"},{"@type":"ListItem","position":2,"name":"Shopify development","item":"https://www.globify.ae/shopify-development"}]
           })
         }}
       />

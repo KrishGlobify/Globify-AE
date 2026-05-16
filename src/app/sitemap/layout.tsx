@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://globify.ae"},{"@type":"ListItem","position":2,"name":"Sitemap","item":"https://globify.ae/sitemap"}]
+            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://www.globify.ae"},{"@type":"ListItem","position":2,"name":"Sitemap","item":"https://www.globify.ae/sitemap"}]
           })
         }}
       />

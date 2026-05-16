@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: ['/', '/_next/static/css/', '/_next/static/js/'],
       disallow: '/private/',
     },
-    sitemap: 'https://globify.ae/sitemap.xml',
+    sitemap: 'https://www.globify.ae/sitemap.xml',
   };
 }

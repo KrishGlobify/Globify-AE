@@ -21,7 +21,7 @@ export default function Page() {
             "mainEntity": {
               "@type": "Organization",
               "name": "Globify",
-              "url": "https://globify.ae",
+              "url": "https://www.globify.ae",
               "description": "Globify is a 360° digital commerce and technology partner."
             }
           })

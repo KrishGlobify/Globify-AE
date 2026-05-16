@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: "${tech.name} Development Services",
       description: tech.heroDescription || tech.description,
       type: "website",
-      url: `https://globify.ae/technology/${tech.slug}`,
+      url: `https://www.globify.ae/technology/${tech.slug}`,
     }
   };
 }
@@ -49,7 +49,7 @@ export default function Layout({ children, params }: { children: React.ReactNode
                 "@type": "Organization",
                 "name": "Globify",
               "sameAs": ["https://www.linkedin.com/company/globify", "https://www.instagram.com/globify"],
-                "url": "https://globify.ae"
+                "url": "https://www.globify.ae"
               },
               "areaServed": ["United Arab Emirates", "India", "Global"]
             })
@@ -63,7 +63,7 @@ export default function Layout({ children, params }: { children: React.ReactNode
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://globify.ae"},{"@type":"ListItem","position":2,"name":"Technology","item":"https://globify.ae/technology"},{"@type":"ListItem","position":3,"name":"Current Article"}]
+            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://www.globify.ae"},{"@type":"ListItem","position":2,"name":"Technology","item":"https://www.globify.ae/technology"},{"@type":"ListItem","position":3,"name":"Current Article"}]
           })
         }}
       />

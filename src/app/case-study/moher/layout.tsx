@@ -21,17 +21,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               "@type": "Person",
               "name": "Sreekanth",
               "jobTitle": "Lead Digital Architect",
-              "url": "https://globify.ae/about"
+              "url": "https://www.globify.ae/about"
             },
             "publisher": {
               "@type": "Organization",
               "name": "Globify",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://globify.ae/logo.png"
+                "url": "https://www.globify.ae/logo.png"
               }
             },
-            "mainEntityOfPage": "https://globify.ae/case-study/moher",
+            "mainEntityOfPage": "https://www.globify.ae/case-study/moher",
           })
         }}
       />
@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://globify.ae"},{"@type":"ListItem","position":2,"name":"Case study","item":"https://globify.ae/case-study"},{"@type":"ListItem","position":3,"name":"Moher","item":"https://globify.ae/case-study/moher"}]
+            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://www.globify.ae"},{"@type":"ListItem","position":2,"name":"Case study","item":"https://www.globify.ae/case-study"},{"@type":"ListItem","position":3,"name":"Moher","item":"https://www.globify.ae/case-study/moher"}]
           })
         }}
       />

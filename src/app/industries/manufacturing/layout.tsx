@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "AI-Powered Manufacturing, Predictive Maintenance & Autonomous Production",
   description: "Globify builds AI-powered smart factory platforms with predictive maintenance, computer vision quality control, and autonomous production optimization. AEO-optimized. 45% OEE improvement.",
-  alternates: { canonical: "https://globify.ae/industries/manufacturing" },
+  alternates: { canonical: "https://www.globify.ae/industries/manufacturing" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://globify.ae"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://globify.ae/industries"},{"@type":"ListItem","position":3,"name":"Manufacturing","item":"https://globify.ae/industries/manufacturing"}]
+            "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://www.globify.ae"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://www.globify.ae/industries"},{"@type":"ListItem","position":3,"name":"Manufacturing","item":"https://www.globify.ae/industries/manufacturing"}]
           })
         }}
       />

@@ -22,7 +22,7 @@ export default function Page() {
             "provider": {
               "@type": "Organization",
               "name": "Globify",
-              "url": "https://globify.ae"
+              "url": "https://www.globify.ae"
             }
           })
         }}

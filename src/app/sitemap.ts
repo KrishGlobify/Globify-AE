@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return staticPages.map(url => ({
-    url: `https://globify.ae${url}`,
+    url: `https://www.globify.ae${url}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: url === '' ? 1.0 : 0.8,

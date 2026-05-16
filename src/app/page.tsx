@@ -29,8 +29,8 @@ export default function Page() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Globify",
-            image: "https://globify.ae/logo.png",
-            url: "https://globify.ae",
+            image: "https://www.globify.ae/logo.png",
+            url: "https://www.globify.ae",
             telephone: "+971501234567",
             address: {
               "@type": "PostalAddress",
