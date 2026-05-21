@@ -1,3 +1,18 @@
+
+## Branching Strategy
+
+This project uses the following branching strategy:
+
+- **main** - Production level branch. Stable, tested code ready for deployment.
+- **test** - For testing purposes only. Used to validate changes before merging to production.
+- **develop** - Development branch. Where active development takes place.
+
+### Workflow
+
+1. Work on features and fixes in the **develop** branch
+2. Merge completed work into the **test** branch for testing
+3. After successful testing, merge into the **main** branch for production deployment
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
